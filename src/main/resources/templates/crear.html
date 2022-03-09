@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <html>
+        <head>
+            <title>TODO supply a title</title>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        </head>
+        <body>
+            <div class="container">
+                <form th:object="${persona}"
+                      th:action="@{/save}"
+                      method="POST">
+
+                  
+                    <div> 
+                        <label for="apellido1">Apellido1</label>
+                        <input type="text" th:field="*{apellido1}">
+                    </div>
+                    <div> 
+                        <label for="apellido2">Apellido2</label>
+                        <input type="text" th:field="*{apellido2}">
+                    </div>
+                    <div> 
+                        <label for="email">Email</label>
+                        <input type="text" th:field="*{email}">
+                    </div>
+                    
+                    <button type="submit" value="Guardar">Submit</button>
+                    
+
+                </form>
+
+            </div>
+    </body>
+</html>
