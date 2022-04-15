@@ -12,7 +12,7 @@
                       th:action="@{/save}"
                       method="POST">
 
-                  
+                    <input type="hidden" th:field="*{id}">
                     <div> 
                         <label for="apellido1">Apellido1</label>
                         <input type="text" th:field="*{apellido1}">
@@ -25,7 +25,20 @@
                         <label for="email">Email</label>
                         <input type="text" th:field="*{email}">
                     </div>
-                    
+                    <div> 
+                        <label for="telefono">Telefono</label>
+                        <input type="text" th:field="*{telefono}">
+                    </div>
+                    <div>
+                        <label for="pais">Pais</label>
+                        <select th:field="*{pais}">
+                            <option th:each="x:${paises}"
+                                    th:value="${x.id}"
+                                    th:text="${x.pais}"/>
+                        </select>
+                               
+                        
+                    </div>
                     <button type="submit" value="Guardar">Submit</button>
                     
 

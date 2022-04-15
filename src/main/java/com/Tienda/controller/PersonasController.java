@@ -1,7 +1,9 @@
 
 package com.Tienda.controller;
 
+import com.Tienda.entity.Pais;
 import com.Tienda.entity.Persona;
+import com.Tienda.service.iPaisService;
 import com.Tienda.service.iPersonaService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +18,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 public class PersonasController {
     @Autowired
     private iPersonaService personaService;
+    private iPaisService paisService;
      
     @GetMapping("/persona")
     public String personas(Model model){
@@ -27,10 +30,22 @@ public class PersonasController {
     
     @GetMapping("/personasN")
     public String crearPersona(Model model){
+        List<Pais> listaPais= paisService.listCountry();
+        model.addAttribute("paises",listaPais);
         model.addAttribute("persona",new Persona());
+        
         return "crear";
     }
-    
+    @GetMapping("/editPersona/{id}")
+    public String editarPersona(@PathVariable("id")Long idPersona, Model model){
+        List<Pais> listaPais= paisService.listCountry();
+        Persona persona=personaService.getPersonById(idPersona);
+        
+        model.addAttribute("persona",persona);
+        model.addAttribute("paises",listaPais);
+        return "crear";
+    }
+   
     @PostMapping("/save")
     public String guardarPersona(@ModelAttribute Persona persona){
         personaService.savePerson(persona);
