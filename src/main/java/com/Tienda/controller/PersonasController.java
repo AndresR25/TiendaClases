@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 public class PersonasController {
     @Autowired
     private iPersonaService personaService;
+    @Autowired
     private iPaisService paisService;
      
     @GetMapping("/persona")
@@ -33,7 +34,6 @@ public class PersonasController {
         List<Pais> listaPais= paisService.listCountry();
         model.addAttribute("paises",listaPais);
         model.addAttribute("persona",new Persona());
-        
         return "crear";
     }
     @GetMapping("/editPersona/{id}")

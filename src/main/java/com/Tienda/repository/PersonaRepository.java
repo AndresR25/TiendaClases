@@ -12,5 +12,5 @@ import org.springframework.data.repository.CrudRepository;
  * @author kflex25
  */
 public interface PersonaRepository extends CrudRepository<Persona,Long>{
-    
+    Persona findByapellido1(String apellido1);
 }

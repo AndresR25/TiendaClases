@@ -35,6 +35,13 @@ public class PersonaService implements iPersonaService{
     }
     
     
+    @Override
+    public Persona findByapellido1(String apellido1) {
+        return personaRepository.findByapellido1(apellido1);
+    }
+   
+    
+    
     
     
 }

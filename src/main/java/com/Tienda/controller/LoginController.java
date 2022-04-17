@@ -12,7 +12,7 @@ public class LoginController {
     @Autowired
     private iPersonaService personaService;
     
-    @GetMapping({"/","/perro"})
+    @GetMapping({"/","/login"})
     public String index(){
         return "login";
     }
